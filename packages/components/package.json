@@ -1,0 +1,31 @@
+{
+  "name": "@solid-ui/components",
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "test": "vitest"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.7.0"
+  },
+  "dependencies": {
+    "@solid-ui/theme": "workspace:*",
+    "@solid-ui/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "solid-js": "^1.7.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^2.0.0",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}

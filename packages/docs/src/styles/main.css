@@ -1,0 +1,19 @@
+.app {
+  padding: 20px;
+}
+
+.demo-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.demo-block {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.demo-block>* {
+  margin: 0 8px;
+}

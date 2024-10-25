@@ -1,0 +1,11 @@
+solid-ui/
+├── packages/
+│   ├── components/       # 核心组件库
+│   ├── hooks/           # 通用 hooks
+│   ├── theme/           # 主题系统
+│   ├── utils/           # 工具函数
+│   └── docs/            # 文档站点
+├── playground/          # 组件测试场地
+├── scripts/            # 构建和工具脚本
+├── tests/              # 测试相关配置
+└── package.json

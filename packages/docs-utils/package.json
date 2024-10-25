@@ -1,5 +1,5 @@
 {
-  "name": "@solid-ui/utils",
+  "name": "@solid-ui/docs-utils",
   "version": "0.0.1",
   "type": "module",
   "files": [
@@ -17,7 +17,11 @@
   "peerDependencies": {
     "solid-js": "^1.7.0"
   },
-  "dependencies": {
-    "@solid-ui/theme": "workspace:*"
+  "devDependencies": {
+    "solid-js": "^1.7.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^2.0.0",
+    "vite-plugin-solid": "^2.7.0"
   }
 }

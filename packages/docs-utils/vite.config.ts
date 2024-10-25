@@ -16,7 +16,7 @@ export default defineConfig({
       fileName: "index",
     },
     rollupOptions: {
-      external: ["solid-js", "solid-js/web", "@solid-ui/theme"],
+      external: ["solid-js"],
     },
   },
 });

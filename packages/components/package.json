@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "@solid-ui/theme": "workspace:*",
-    "@solid-ui/utils": "workspace:*"
+    "@solid-ui/utils": "workspace:*",
+    "@solid-ui/hooks": "workspace:*",
+    "@solid-ui/docs-utils": "workspace:*"
   },
   "devDependencies": {
     "solid-js": "^1.7.0",

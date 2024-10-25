@@ -4,5 +4,8 @@ interface ThemeProviderProps {
     children?: JSX.Element;
 }
 export declare const ThemeProvider: Component<ThemeProviderProps>;
-export declare const useTheme: () => Theme;
+export declare const useTheme: () => {
+    theme: () => Theme;
+    toggleTheme: () => void;
+};
 export {};

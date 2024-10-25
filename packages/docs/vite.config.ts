@@ -6,9 +6,18 @@ export default defineConfig({
   plugins: [solidPlugin()],
   resolve: {
     alias: {
-      "@solid-ui/components": resolve(__dirname, "../components/src"),
-      "@solid-ui/theme": resolve(__dirname, "../theme/src"),
-      "@solid-ui/utils": resolve(__dirname, "../utils/src"),
+      "@solid-ui/components": resolve(__dirname, "../components"),
+      "@solid-ui/theme": resolve(__dirname, "../theme"),
+      "@solid-ui/utils": resolve(__dirname, "../utils"),
+      "@solid-ui/docs-utils": resolve(__dirname, "../docs-utils"),
+    },
+  },
+  optimizeDeps: {
+    include: ["@solidjs/router"],
+  },
+  build: {
+    commonjsOptions: {
+      include: [/node_modules/],
     },
   },
 });

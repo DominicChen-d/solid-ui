@@ -1,21 +1,10 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
     "types": [
       "vite/client",
-      "vitest/globals",
-      "@testing-library/jest-dom"
-    ],
-    "noEmit": true,
-    "isolatedModules": true,
-    "strict": true,
-    "skipLibCheck": true
+      "vitest/globals"
+    ]
   },
   "include": [
     "src"

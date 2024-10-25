@@ -1,5 +1,5 @@
 {
-  "name": "@solid-ui/utils",
+  "name": "@solid-ui/hooks",
   "version": "0.0.1",
   "type": "module",
   "files": [
@@ -18,6 +18,6 @@
     "solid-js": "^1.7.0"
   },
   "dependencies": {
-    "@solid-ui/theme": "workspace:*"
+    "@solid-ui/utils": "workspace:*"
   }
 }

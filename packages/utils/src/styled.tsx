@@ -1,4 +1,4 @@
-import { JSX, Component } from "solid-js";
+import { JSX, Component, createEffect, onCleanup, createMemo } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { Theme } from "@solid-ui/theme";
 
@@ -12,16 +12,31 @@ export function styled(tag: keyof JSX.IntrinsicElements) {
     styles: TemplateStringsArray,
     ...interpolations: ((props: StyledProps) => string)[]
   ) => {
-    const StyledComponent: Component<any> = (props) => {
-      const computedStyles = styles.reduce((acc, style, i) => {
-        const interpolation = interpolations[i];
-        return acc + style + (interpolation ? interpolation(props) : "");
-      }, "");
-
+    const StyledComponent: Component<StyledProps> = (props) => {
+      let styleElement: HTMLStyleElement | null = null;
       const className = `styled-${Math.random().toString(36).substring(7)}`;
-      const styleElement = document.createElement("style");
-      styleElement.textContent = `.${className} { ${computedStyles} }`;
-      document.head.appendChild(styleElement);
+
+      const computedStyles = createMemo(() => {
+        return styles.reduce((acc, style, i) => {
+          const interpolation = interpolations[i];
+          return acc + style + (interpolation ? interpolation(props) : "");
+        }, "");
+      });
+
+      createEffect(() => {
+        if (!styleElement) {
+          styleElement = document.createElement("style");
+          document.head.appendChild(styleElement);
+        }
+
+        styleElement.textContent = `.${className} { ${computedStyles()} }`;
+      });
+
+      onCleanup(() => {
+        if (styleElement) {
+          document.head.removeChild(styleElement);
+        }
+      });
 
       const combinedClass = `${className} ${props.class || ""}`;
 

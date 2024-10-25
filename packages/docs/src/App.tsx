@@ -1,21 +1,22 @@
 import { Component } from "solid-js";
 import { Router, Routes, Route } from "@solidjs/router";
-import { Home } from "./routes";
-import { ButtonDemo } from "./routes/components/button";
 import { ThemeProvider } from "@solid-ui/theme";
+import { Navigation } from "./components/Navigation";
+import { routes } from "./routes/components";
+import { Home } from "./routes";
 
 export const App: Component = () => {
   return (
     <ThemeProvider>
       <Router>
         <div class="app">
-          <header>
-            <h1>Solid UI</h1>
-          </header>
+          <Navigation />
           <main>
             <Routes>
               <Route path="/" component={Home} />
-              <Route path="/components/button" component={ButtonDemo} />
+              {routes.map((route) => (
+                <Route path={route.path} component={route.component} />
+              ))}
             </Routes>
           </main>
         </div>

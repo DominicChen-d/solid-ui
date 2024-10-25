@@ -1,6 +1,7 @@
 {
   "name": "solid-ui",
   "private": true,
+  "description": "Element-ui style component library for solidjs",
   "scripts": {
     "dev": "pnpm -r dev",
     "build": "pnpm -r build",
@@ -9,7 +10,7 @@
     "docs:dev": "pnpm --filter docs dev",
     "docs:build": "pnpm --filter docs build",
     "start": "pnpm build-deps && pnpm docs:dev",
-    "build-deps": "pnpm --filter \"./packages/theme\" build && pnpm --filter \"./packages/utils\" build && pnpm --filter \"./packages/components\" build"
+    "build-deps": "pnpm --filter \"./packages/theme\" build && pnpm --filter \"./packages/utils\" build && pnpm --filter \"./packages/hooks\" build && pnpm --filter \"./packages/docs-utils\" build && pnpm --filter \"./packages/components\" build"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
@@ -24,5 +25,8 @@
     "vite-plugin-solid": "^2.7.0",
     "vite-plugin-dts": "^2.0.0",
     "jsdom": "^22.1.0"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.7.0"
   }
 }

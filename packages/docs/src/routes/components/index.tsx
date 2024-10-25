@@ -1,4 +1,4 @@
-import { Component, lazy } from "solid-js";
+import { lazy } from "solid-js";
 import { ComponentDocs } from "../../components/ComponentDocs";
 import { ComponentDoc } from "@solid-ui/docs-utils";
 

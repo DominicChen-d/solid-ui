@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, For } from "solid-js";
 import { Router, Routes, Route } from "@solidjs/router";
 import { ThemeProvider } from "@solid-ui/theme";
 import { Navigation } from "./components/Navigation";
@@ -14,9 +14,9 @@ export const App: Component = () => {
           <main>
             <Routes>
               <Route path="/" component={Home} />
-              {routes.map((route) => (
+              <For each={routes}>{(route) => (
                 <Route path={route.path} component={route.component} />
-              ))}
+              )}</For>
             </Routes>
           </main>
         </div>

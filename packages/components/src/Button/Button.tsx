@@ -1,11 +1,10 @@
-import { Component, JSX } from "solid-js";
-import { useTheme } from "@solid-ui/theme";
-import { styled } from "@solid-ui/utils";
+import { Component, JSX } from 'solid-js';
+import { useTheme } from '@solid-ui/theme';
+import { styled } from '@solid-ui/utils';
 
-export interface ButtonProps
-  extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
-  size?: "small" | "medium" | "large";
+export interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
 }
 
 export const Button: Component<ButtonProps> = (props) => {
@@ -15,14 +14,14 @@ export const Button: Component<ButtonProps> = (props) => {
     <StyledButton
       {...props}
       theme={theme()}
-      class={`btn ${props.variant || "primary"} ${props.size || "medium"}`}
+      class={`btn ${props.variant || 'primary'} ${props.size || 'medium'}`}
     >
       {props.children}
     </StyledButton>
   );
 };
 
-const StyledButton = styled("button")`
+const StyledButton = styled('button')`
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -63,8 +62,3 @@ const StyledButton = styled("button")`
     font-size: 16px;
   }
 `;
-
-type StyledProps = {
-  theme: ReturnType<typeof useTheme>;
-  [key: string]: any;
-};

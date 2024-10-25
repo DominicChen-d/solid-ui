@@ -9,7 +9,7 @@ type DocModule = {
 
 // 使用 Vite 的 glob 导入所有组件文档
 const componentDocs = import.meta.glob<DocModule>(
-  '../../../node_modules/@solid-ui/components/src/*/demo/en-US.tsx'
+  '../../../node_modules/@solid-ui/components/src/*/demo/zh-CN.tsx'
 );
 
 // 创建路由配置

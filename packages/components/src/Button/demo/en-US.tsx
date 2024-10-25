@@ -3,33 +3,33 @@ import { createComponentDoc } from '@solid-ui/docs-utils';
 
 export default createComponentDoc({
   name: 'Button',
-  description: '按钮组件，用于触发操作。',
+  description: 'Button component for triggering an action.',
   props: [
     {
       name: 'variant',
       type: '"primary" | "secondary"',
       required: false,
       default: 'primary',
-      description: '按钮的样式变体',
+      description: 'Style variants for buttons',
     },
     {
       name: 'size',
       type: '"small" | "medium" | "large"',
       required: false,
       default: 'medium',
-      description: '按钮的大小',
+      description: 'Button size',
     },
   ],
   examples: [
     {
-      title: '基础用法',
-      description: '最基本的按钮用法。',
+      title: 'basic usage',
+      description: 'The most basic button usage.',
       code: '<Button>Default Button</Button>',
       component: () => <Button>Default Button</Button>,
     },
     {
-      title: '按钮变体',
-      description: '不同样式的按钮。',
+      title: 'Button variants',
+      description: 'Different styles of buttons.',
       code: `
 <Button variant="primary">Primary Button</Button>
 <Button variant="secondary">Secondary Button</Button>
@@ -42,8 +42,8 @@ export default createComponentDoc({
       ),
     },
     {
-      title: '按钮大小',
-      description: '不同尺寸的按钮。',
+      title: 'Button Size',
+      description: 'Different sizes of buttons.',
       code: `
 <Button size="small">Small Button</Button>
 <Button size="medium">Medium Button</Button>

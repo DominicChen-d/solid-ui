@@ -18,7 +18,7 @@ A modern component library based on SolidJS, built with TypeScript, supporting t
 
 ### Feedback Components
 
-- [ ] Alert
+- [x] Alert
 - [ ] Dialog
 - [ ] Drawer
 - [ ] Loading

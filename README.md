@@ -2,6 +2,8 @@
 
 A modern component library based on SolidJS, built with TypeScript, supporting theme customization and tree-shaking.
 
+[🚀 Access document address](https://solid-5i4j8y24r-dominicchen-ds-projects.vercel.app/)
+
 [中文文档](./README.zh-CN.md)
 
 ## Features

@@ -16,6 +16,7 @@ export const Navigation: Component = () => {
         'border-color': theme().colors.border,
         'background-color': theme().colors.background,
         transition: 'all 0.3s ease',
+        'box-sizing': 'border-box',
       }}
     >
       <div class="theme-switch">

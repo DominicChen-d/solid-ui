@@ -1,7 +1,8 @@
-import { Component, JSX, JSXElement, Show } from 'solid-js';
+import { Component, JSX, JSXElement, Match, Show, Switch } from 'solid-js';
 import { useTheme } from '@solid-ui/theme';
 import { styled } from '@solid-ui/utils';
 import { Close } from '../Icon/Close';
+import { Check } from '../Icon';
 
 export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -9,6 +10,7 @@ export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   description?: string;
   onClose?: () => void;
   close?: JSXElement;
+  showIcon?: boolean;
 }
 
 export const Alert: Component<AlertProps> = (props) => {
@@ -19,8 +21,33 @@ export const Alert: Component<AlertProps> = (props) => {
       props.onClose();
     }
   };
+
+  const successIcon = () => {
+    return <Check fill="#67c23a" size={32} strokeWidth={0} stroke="#fff" />;
+  };
+
+  const infoIcon = () => {
+    return <Check fill="#909399" size={32} strokeWidth={0} stroke="#fff" />;
+  };
+
+  const warningIcon = () => {
+    return <Check fill="#e6a23c" size={32} strokeWidth={0} stroke="#fff" />;
+  };
+
+  const errorIcon = () => {
+    return <Check fill="#f56c6c" size={32} strokeWidth={0} stroke="#fff" />;
+  };
+
   return (
     <StyledAlert theme={theme()} class={`${theme().name} ${props.type}`}>
+      <Show when={props.showIcon}>
+        <Switch>
+          <Match when={props.type === 'success'}>{successIcon()}</Match>
+          <Match when={props.type === 'info'}>{infoIcon()}</Match>
+          <Match when={props.type === 'warning'}>{warningIcon()}</Match>
+          <Match when={props.type === 'error'}>{errorIcon()}</Match>
+        </Switch>
+      </Show>
       <div class="alert-content">
         <span class={`alert-title`}>{props.title}</span>
         <Show when={props.description}>
@@ -47,6 +74,22 @@ const StyledAlert = styled('div')`
   align-items: center;
   transition: opacity 2s;
   margin: 20px 0;
+  display: flex;
+  align-items: center;
+
+  > svg {
+    margin-right: 12px;
+  }
+
+  .alert-title {
+    font-size: 16px;
+  }
+
+  .alert-description {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.7;
+  }
 
   &:first-child {
     margin: 0;

@@ -14,12 +14,12 @@ export function Icon(props: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      width={local.size || '1em'}
-      height={local.size || '1em'}
+      viewBox={`0 0 24 24`}
+      width={local.size || '16'}
+      height={local.size || '16'}
       fill={local.color || 'none'}
       stroke={local.stroke || 'currentColor'}
-      stroke-width={local.strokeWidth || '2'}
+      stroke-width={typeof local.strokeWidth === 'undefined' ? '2' : local.strokeWidth}
       {...others}
     >
       {props.children}

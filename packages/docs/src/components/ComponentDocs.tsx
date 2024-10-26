@@ -1,13 +1,36 @@
 import { Component, For } from 'solid-js';
 import { ComponentDoc } from '@solid-ui/docs-utils';
+import { styled } from '@solid-ui/utils';
+import { useTheme } from '@solid-ui/theme';
 
 interface ComponentDocsProps {
   doc: ComponentDoc;
 }
 
+const StyledDocs = styled('div')`
+  thead th {
+    border-bottom: 1px solid #dcdfe6;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: left;
+  }
+
+  tbody td {
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dcdfe6;
+  }
+
+  tbody tr:last-child td {
+    border: none;
+  }
+`;
+
 export const ComponentDocs: Component<ComponentDocsProps> = (props) => {
+  const { theme } = useTheme();
   return (
-    <div class="component-docs">
+    <StyledDocs theme={theme()}>
       <h1>{props.doc.name}</h1>
       <p>{props.doc.description}</p>
 
@@ -53,6 +76,6 @@ export const ComponentDocs: Component<ComponentDocsProps> = (props) => {
           </div>
         )}
       </For>
-    </div>
+    </StyledDocs>
   );
 };

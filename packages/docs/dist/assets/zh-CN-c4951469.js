@@ -1,4 +1,4 @@
-import{$ as r,c as e,m as a,E as i}from"./index-eaf22fdc.js";import{n as m}from"./index-0702e26a.js";const n=t=>{const{theme:o}=r();return e(d,a(t,{get theme(){return o()},get class(){return`btn ${t.variant||"primary"} ${t.size||"medium"}`},get children(){return t.children}}))},d=i("button")`
+import{$ as r,c as e,m as a,M as i}from"./index-8596a95a.js";import{n as m}from"./index-0702e26a.js";const n=t=>{const{theme:o}=r();return e(d,a(t,{get theme(){return o()},get class(){return`btn ${t.variant||"primary"} ${t.size||"medium"}`},get children(){return t.children}}))},d=i("button")`
   border: none;
   border-radius: 4px;
   cursor: pointer;

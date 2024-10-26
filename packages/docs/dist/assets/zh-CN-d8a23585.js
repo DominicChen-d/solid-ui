@@ -1,0 +1,1 @@
+import{n as o}from"./index-0702e26a.js";import{C as e}from"./Close-4c52b502.js";import{c as t}from"./index-8596a95a.js";const i=o({name:"Icon",description:"用于图标的容器组件",examples:[{title:"基础用法",description:"最基本的图标用法。",code:"",component:()=>t(e,{strokeWidth:1})}]});export{i as default};

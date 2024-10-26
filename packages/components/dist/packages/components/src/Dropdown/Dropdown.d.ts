@@ -1,2 +1,2 @@
-import { Component } from "solid-js";
+import { Component } from 'solid-js';
 export declare const Dropdown: Component;

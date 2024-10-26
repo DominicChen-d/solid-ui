@@ -1,9 +1,9 @@
-import { JSX } from "solid-js";
+import { JSX } from 'solid-js';
 
 export interface ComponentDoc {
   name: string;
   description: string;
-  props: PropDoc[];
+  props?: PropDoc[];
   examples: Example[];
 }
 

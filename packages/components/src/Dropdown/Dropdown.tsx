@@ -1,5 +1,5 @@
-import { Component, createSignal } from "solid-js";
-import { useClickOutside } from "@solid-ui/hooks";
+import { Component, createSignal } from 'solid-js';
+import { useClickOutside } from '@solid-ui/hooks';
 
 export const Dropdown: Component = () => {
   const [isOpen, setIsOpen] = createSignal(false);

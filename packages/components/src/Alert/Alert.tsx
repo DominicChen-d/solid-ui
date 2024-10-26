@@ -1,4 +1,4 @@
-import { Component, JSX, Show } from 'solid-js';
+import { Component, JSX, JSXElement, Show } from 'solid-js';
 import { useTheme } from '@solid-ui/theme';
 import { styled } from '@solid-ui/utils';
 import { Close } from '../Icon/Close';
@@ -7,10 +7,18 @@ export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   title: string;
   type?: 'success' | 'warning' | 'info' | 'error';
   description?: string;
+  onClose?: () => void;
+  close?: JSXElement;
 }
 
 export const Alert: Component<AlertProps> = (props) => {
   const { theme } = useTheme();
+
+  const handleClickClose = () => {
+    if (props.onClose) {
+      props.onClose();
+    }
+  };
   return (
     <StyledAlert theme={theme()} class={`${theme().name} ${props.type}`}>
       <div class="alert-content">
@@ -18,7 +26,11 @@ export const Alert: Component<AlertProps> = (props) => {
         <Show when={props.description}>
           <p class={`alert-description`}>{props.description}</p>
         </Show>
-        <Close class={`${theme().name} close-btn`} />
+        <div class={`${theme().name} close-btn`}>
+          <Show when={props.close} fallback={<Close onclick={handleClickClose} />}>
+            {props.close}
+          </Show>
+        </div>
       </div>
     </StyledAlert>
   );

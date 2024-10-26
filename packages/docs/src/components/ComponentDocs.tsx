@@ -47,7 +47,7 @@ export const ComponentDocs: Component<ComponentDocsProps> = (props) => {
             <h3>{example.title}</h3>
             <p>{example.description}</p>
             <div class="example-demo">{example.component()}</div>
-            <pre>
+            <pre style={{ background: '#282828', color: '#cecdcd' }}>
               <code>{example.code}</code>
             </pre>
           </div>

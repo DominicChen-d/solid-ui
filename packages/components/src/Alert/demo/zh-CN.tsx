@@ -32,5 +32,23 @@ export default createComponentDoc({
         </>
       ),
     },
+    {
+      title: '自定义关闭按钮',
+      description: `你可以自定义关闭按钮为文字或其他符号。\r\n 你可以设置 Alert 组件是否为可关闭状态， 关闭按钮的内容以及关闭时的回调函数同样可以定制。`,
+      code: `
+      <div>
+        <Alert title="Success alert" type="success" close={''} />
+        <Alert title="Success alert" type="success" close={'hello world'} />
+        <Alert title="Success alert" type="success" onClose={() => alert('hello world')} />
+      </div>
+      `,
+      component: () => (
+        <>
+          <Alert title="Success alert" type="success" close={''} />
+          <Alert title="Info alert" type="info" close={'hello world'} />
+          <Alert title="Error alert" type="error" onClose={() => alert('hello world')} />
+        </>
+      ),
+    },
   ],
 });

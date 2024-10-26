@@ -16,12 +16,13 @@ export default createComponentDoc({
     {
       title: '基础用法',
       description: '最基本的Alert用法。',
-      code: `<>
+      code: `
+        <div>
           <Alert title="Success alert" type="success" />
           <Alert title="Info alert" type="info" />
           <Alert title="Warning alert" type="warning" />
           <Alert title="Error alert" type="error" />
-        </>`,
+        </div>`,
       component: () => (
         <>
           <Alert title="Success alert" type="success" />

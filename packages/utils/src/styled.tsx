@@ -1,6 +1,6 @@
-import { JSX, Component, createEffect, onCleanup, createMemo } from "solid-js";
-import { Dynamic } from "solid-js/web";
-import { Theme } from "@solid-ui/theme";
+import { JSX, Component, createEffect, onCleanup, createMemo } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
+import { Theme } from '@solid-ui/theme';
 
 type StyledProps = {
   theme: Theme;
@@ -8,10 +8,7 @@ type StyledProps = {
 };
 
 export function styled(tag: keyof JSX.IntrinsicElements) {
-  return (
-    styles: TemplateStringsArray,
-    ...interpolations: ((props: StyledProps) => string)[]
-  ) => {
+  return (styles: TemplateStringsArray, ...interpolations: ((props: StyledProps) => string)[]) => {
     const StyledComponent: Component<StyledProps> = (props) => {
       let styleElement: HTMLStyleElement | null = null;
       const className = `styled-${Math.random().toString(36).substring(7)}`;
@@ -19,13 +16,13 @@ export function styled(tag: keyof JSX.IntrinsicElements) {
       const computedStyles = createMemo(() => {
         return styles.reduce((acc, style, i) => {
           const interpolation = interpolations[i];
-          return acc + style + (interpolation ? interpolation(props) : "");
-        }, "");
+          return acc + style + (interpolation ? interpolation(props) : '');
+        }, '');
       });
 
       createEffect(() => {
         if (!styleElement) {
-          styleElement = document.createElement("style");
+          styleElement = document.createElement('style');
           document.head.appendChild(styleElement);
         }
 
@@ -38,9 +35,9 @@ export function styled(tag: keyof JSX.IntrinsicElements) {
         }
       });
 
-      const combinedClass = `${className} ${props.class || ""}`;
+      const combinedClass = createMemo(() => `${className} ${props.class || ''}`);
 
-      return <Dynamic component={tag} {...props} class={combinedClass} />;
+      return <Dynamic component={tag} {...props} class={combinedClass()} />;
     };
 
     return StyledComponent;

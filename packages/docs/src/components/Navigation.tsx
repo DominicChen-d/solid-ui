@@ -1,5 +1,5 @@
-import { Component, For, Show } from 'solid-js';
-import { A } from '@solidjs/router';
+import { Component, createMemo, For, Show } from 'solid-js';
+import { A, useLocation } from '@solidjs/router';
 import { useTheme } from '@solid-ui/theme';
 import { Button } from '@solid-ui/components';
 import { routes } from '../routes/components';
@@ -9,6 +9,7 @@ console.log(routes);
 
 export const Navigation: Component = () => {
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   return (
     <nav
@@ -36,9 +37,14 @@ export const Navigation: Component = () => {
             const lastIndex = item.path.lastIndexOf('/');
             const name = item.path.substring(lastIndex + 1);
             useCapitalizeFirst(() => elementRef);
+            const active = createMemo(() => location.pathname === item.path);
             return (
               <li>
-                <A href={item.path} ref={(el) => (elementRef = el)}>
+                <A
+                  style={{ color: active() ? 'red' : '' }}
+                  href={item.path}
+                  ref={(el) => (elementRef = el)}
+                >
                   {name}
                 </A>
               </li>

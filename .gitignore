@@ -33,3 +33,4 @@ pnpm-debug.log*
 pnpm-lock.yaml
 pnpm-workspace.yaml
 packages/*/dist/
+!packages/docs/dist/

@@ -18,7 +18,7 @@ export const Alert: Component<AlertProps> = (props) => {
         <Show when={props.description}>
           <p class={`alert-description`}>{props.description}</p>
         </Show>
-        <Close class={`close-btn`} />
+        <Close class={`${theme().name} close-btn`} />
       </div>
     </StyledAlert>
   );
@@ -87,5 +87,9 @@ const StyledAlert = styled('div')`
     right: 16px;
     cursor: pointer;
     color: #a8abb2;
+  }
+
+  .dark.close-btn {
+    color: #fff;
   }
 `;

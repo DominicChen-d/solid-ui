@@ -1,5 +1,5 @@
-import { Component, For } from "solid-js";
-import { ComponentDoc } from "@solid-ui/docs-utils";
+import { Component, For } from 'solid-js';
+import { ComponentDoc } from '@solid-ui/docs-utils';
 
 interface ComponentDocsProps {
   doc: ComponentDoc;
@@ -27,12 +27,12 @@ export const ComponentDocs: Component<ComponentDocsProps> = (props) => {
               <tr>
                 <td>
                   {prop.name}
-                  {prop.required && " *"}
+                  {prop.required && ' *'}
                 </td>
                 <td>
                   <code>{prop.type}</code>
                 </td>
-                <td>{prop.default || "-"}</td>
+                <td>{prop.default || '-'}</td>
                 <td>{prop.description}</td>
               </tr>
             )}

@@ -1,29 +1,36 @@
-import { onMount as a, onCleanup as c, createSignal as i } from "solid-js";
-function d(o, s) {
-  a(() => {
-    const n = (e) => {
-      const t = o();
-      !t || t.contains(e.target) || s(e);
+import { onMount as o, onCleanup as r, createSignal as c } from "solid-js";
+function d(t, e) {
+  o(() => {
+    const i = (n) => {
+      const s = t();
+      !s || s.contains(n.target) || e(n);
     };
-    document.addEventListener("mousedown", n), c(() => {
-      document.removeEventListener("mousedown", n);
+    document.addEventListener("mousedown", i), r(() => {
+      document.removeEventListener("mousedown", i);
     });
   });
 }
-function m(o) {
-  const [s, n] = i(!1);
-  return a(() => {
-    const e = window.matchMedia(o);
-    n(e.matches);
-    const t = (r) => {
-      n(r.matches);
+function m(t) {
+  const [e, i] = c(!1);
+  return o(() => {
+    const n = window.matchMedia(t);
+    i(n.matches);
+    const s = (a) => {
+      i(a.matches);
     };
-    e.addEventListener("change", t), c(() => {
-      e.removeEventListener("change", t);
+    n.addEventListener("change", s), r(() => {
+      n.removeEventListener("change", s);
     });
-  }), s;
+  }), e;
+}
+function l(t) {
+  o(() => {
+    const e = t();
+    e && e.innerText && (e.innerText = e.innerText.charAt(0).toUpperCase() + e.innerText.slice(1));
+  });
 }
 export {
+  l as useCapitalizeFirst,
   d as useClickOutside,
   m as useMediaQuery
 };

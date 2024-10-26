@@ -6,6 +6,7 @@
     "dev": "pnpm -r dev",
     "build": "pnpm build-deps && pnpm docs:build",
     "test": "pnpm -r test",
+    "test:ui": "pnpm --filter components test",
     "lint": "eslint \"packages/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"packages/**/*.{ts,tsx}\" --fix",
     "docs:dev": "pnpm --filter docs dev",
